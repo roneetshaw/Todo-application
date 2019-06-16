@@ -1,0 +1,34 @@
+<div style="flex-grow:1;height:90vh">
+    <form [formGroup]="toDoItemForm" (ngSubmit)="addTodo(toDoItemForm.value,formDirective)" #formDirective="ngForm">
+        <div class="container" fxLayout="column">
+            <div>
+
+                <mat-form-field style="margin-left:10px" class="example-full-width">
+                    <input formControlName="todoTitle" matInput placeholder="Title" value="">
+                </mat-form-field>
+            </div>
+            <!-- <div class="container" fxLayout="column"> -->
+            <div>
+
+                <mat-form-field style="margin-left:10px" class="example-full-width">
+                    <textarea formControlName="description" matInput placeholder="Description" value=""></textarea>
+                </mat-form-field>
+            </div>
+            <div fxLayout fxLayoutGap="20px">
+                <mat-form-field fxFlex="30">
+                    <input matInput [min]="minDate" [matDatepicker]="picker" formControlName="eventTime"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+        </div>
+        <div>
+            <button *ngIf="!selectedTodo?.todoId" mat-raised-button color="primary" type="submit"
+                [disabled]="!toDoItemForm.valid">Add To List</button>
+            <button mat-button color="secondary" type="button" (click)="delete()">Delete</button>
+
+        </div>
+    </form>
+</div>

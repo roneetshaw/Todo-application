@@ -1,0 +1,17 @@
+<div class="container" fxLayout="column" style="min-height:100%">
+  <div>
+    <mat-toolbar style="background-color: black">
+      <span style="color:beige">ToDo List</span>
+    </mat-toolbar>
+  </div>
+  <div class="container" fxLayout>
+    <div fxFlex="30%" style="background-color: rgb(176, 109, 238)">
+      <toDo-List (createTodoEmitter)="cleanCurrentItem($event)" (selectedTodo)="selectedTodoChange($event)"
+        [todoList]="todoList"></toDo-List>
+    </div>
+    <div fxFlex="70%" style="margin-left:10px;background-color:aliceblue;overflow:inherit;">
+      <toDo-item (addedTodo)="addTodo($event)" [selectedTodo]="selectedTodo" (deletedTodo)="removeTodo($event)">
+      </toDo-item>
+    </div>
+  </div>
+</div>

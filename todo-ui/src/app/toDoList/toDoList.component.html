@@ -1,0 +1,22 @@
+<div fxLayout="column">
+    <div fxFlex>
+        <button mat-raised-button color="primary" style="width:100%;height:50px;font-size: xx-large"
+            (click)="createToDo()">Create</button>
+    </div>
+    <div fxFlex>
+        <mat-list>
+            <div *ngFor="let todo of todoList">
+                <div fxLayout fxLayoutAlign="start center">
+                    <mat-checkbox fxFlex="10" (click)="addDeleteArray(todo?.todoId)"></mat-checkbox>
+                    <mat-list-item fxFlex (click)="selectTodo(todo)" class="item">{{todo.todoTitle}}</mat-list-item>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-list>
+    </div>
+    <span fxFlex></span>
+    <div fxFlex>
+        <button mat-raised-button color="red" style="width:100%;height:50px;font-size: xx-large"
+            (click)="deleteTodos()">Delete</button>
+    </div>
+</div>
